@@ -1,0 +1,1 @@
+docker build -t eachan10/rpg_trajectory_evaluation:melodic -f Dockerfile .
