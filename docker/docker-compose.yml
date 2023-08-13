@@ -10,6 +10,9 @@ services:
       - type: bind # Bind mount the host directory into the container
         source: $HOME/my_prjs/aQC_project/rpg_trajectory_evaluation
         target: /root/catkin_ws/src/rpg_trajectory_evaluation
+      - type: bind # Bind mount the host directory into the container
+        source: $HOME/bagfile
+        target: /root/bagfile
       - /tmp/.X11-unix:/tmp/.X11-unix
       - /mnt/wslg:/mnt/wslg
       - /usr/lib/wsl:/usr/lib/wsl

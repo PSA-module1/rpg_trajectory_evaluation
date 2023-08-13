@@ -6,7 +6,9 @@ ARG DEBIAN_FRONTEND=noninteractive
 # Install basic apt tools
 RUN apt update && apt upgrade -y && apt install -y \
     # Replace python-rosdep with python3-rosdep if running noetic
-    vim wget zsh git python-pip python-catkin-tools && \
+    vim wget zsh git python-pip python-catkin-tools python-tk \
+    # install latex for plotting
+    texlive-latex-base texlive-fonts-extra texlive-latex-extra texlive-fonts-recommended && \
     # create catkin_ws
     mkdir -p /root/catkin_ws/src
 
@@ -25,7 +27,7 @@ RUN . /opt/ros/${ROS_DISTRO}/setup.sh && \
     echo "source /opt/ros/${ROS_DISTRO}/setup.zsh" >> ~/.zshrc
 
 # Install python packages
-RUN pip install numpy matplotlib colorama ruamel.yaml==0.15.99
+RUN pip install numpy matplotlib colorama ruamel.yaml==0.15.99 PyYAML==5.3.1
 
 # Clone catkin_simple
 RUN cd /root/catkin_ws/src && \
